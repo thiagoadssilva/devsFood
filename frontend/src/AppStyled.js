@@ -1,10 +1,10 @@
+// ARUIQVO QUE VAI CONTER OS ESTILOS PADRÕES DAS APLICAÇÃO.
 import styled from 'styled-components';
 
 
 export const Container = styled.div`
     display: flex;
     height: 100vh;
-    background-color: #FF0000;
 `;
 
 export const Menu = styled.div`
@@ -18,6 +18,7 @@ export const Menu = styled.div`
 
 export const PageBody = styled.div`
     display: flex;
-    background-color: #0000FF;
+    background-color: #3E9913;
+    background-image: url('/assets/bg.png');
     flex: 1;
 `;
