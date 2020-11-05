@@ -9,6 +9,8 @@ import Tela2Screen from './pages/Tela2Screen';
 
 import MenuItem from './components/MenuItem';
 
+import PrivateRoute from "./components/PrivateRoute";
+
 export default () => {
     const name = useSelector(state => state.user.name);
 
@@ -22,12 +24,27 @@ export default () => {
                 </Menu>
                 <PageBody>
                     <Switch>
+                        
                         <Route exact path="/">
                             <HomeScreen />
                         </Route>
+
+                        <PrivateRoute path="/orders">
+                            <div>
+                                Tela de Pedidos
+                            </div>
+                        </PrivateRoute>
+
+                        <PrivateRoute path="/profile">
+                            <div>
+                                Tela de Perfil
+                            </div>
+                        </PrivateRoute>
+
                         <Route path="/tela2/:nome">
                             <Tela2Screen />
                         </Route>
+
                     </Switch>
                 </PageBody>
             </Container>
