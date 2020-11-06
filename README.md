@@ -6,44 +6,20 @@ https://github.com/thiagoadssilva/CloneFrontEndOlx/blob/master/README.md
 
 <hr/>
 
-## Tela <b>Principal</b> (Antes de fazer o login.)
+## Parte do <b>Menu Lateral</b> 
 
-![Tela Principal](images/paginaPrincipal.png)
+![Tela Principal](images/MenuLateral.png)
 <hr>
 
-## Tela dos <b>Detalhe</b> dos itens 
 
-![Tela Principal](images/detalheItem.png)
+## Parte da tela de <b>Busca dos Produtos</b>
 
-- Um detalhe interesante nessa tela foi uso do (slideShow), recurso top.
-- Outra coisa foi o mapa da navegação das pagina informando ao usuáro de onde ele estava. (Na parte superior do lado esquerdo da pagina.)
-<hr>
-
-## Tela do cadastro dos <b>Anúncios</b>
-
-![Tela Anúncios](images/cadastroAnuncio.png)
+![Tela Anúncios](images/parteBusca.png)
 
 <hr>
 
-## Tela do <b>Filtro</b>
+## Tela  <b>Principal</b> (até o momento!)
 
-![Tela Anúncios](images/paginaFiltro.png)
-
-<hr>
-
-## finalização do <b>Rodapé</b>
-
-![Tela Anúncios](images/rodape.png)
+![Tela Anúncios](images/todaPagina.png)
 
 <hr>
-
-## finalização da pagina de alteração de <b>Minha Conta</b>
-
-![Tela Anúncios](images/minhConta.png)
-
-<hr>
-
-## finalização da pagina para alterar o <b>Anúncio</b>
-
-![Tela Anúncios](images/AlterarAnuncio.png)
-
