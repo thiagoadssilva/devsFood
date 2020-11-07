@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
-import { Container, CategoryArea, CategoryList } from './styled';
+import { Container, CategoryArea, CategoryList, ProductArea, ProductList } from './styled';
 import ReactTooltip from 'react-tooltip';
 
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
+import ProductItem from '../../components/ProductItem'
 
 import api from '../../api';
 
@@ -15,6 +16,16 @@ export default () => {
     const [categories, setCategories] = useState([]);
 
     const [activeCategory, setActiveCategory] = useState(0);
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () =>{
+        const prods = await api.getProducts();
+
+        if(prods.error == ''){
+            setProducts(prods.result.data);
+        }
+    }
+
 
     useEffect(() =>{
         const getCategories = async () =>{
@@ -25,13 +36,11 @@ export default () => {
             }
             ReactTooltip.rebuild();
         }
-        
         getCategories();
-        
     }, []); 
 
     useEffect(() => {
-
+        getProducts();
     }, [activeCategory]);
 
 
@@ -63,8 +72,19 @@ export default () => {
                         ))}
 
                     </CategoryList>
-                    
                 </CategoryArea>
+            }
+            {products.length > 0 &&
+                <ProductArea>
+                    <ProductList>
+                        {products.map((item, index) =>(
+                            <ProductItem 
+                                key={index}
+                                data={item}
+                            />               
+                        ))}
+                    </ProductList>
+                </ProductArea>
             }
         </Container>
     );
