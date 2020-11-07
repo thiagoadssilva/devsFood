@@ -23,3 +23,9 @@ https://github.com/thiagoadssilva/devsFood/blob/main/frontend/README.md
 ![Tela Anúncios](images/todaPagina.png)
 
 <hr>
+
+## Tela  de exibição dos<b>Itens</b> (até o momento!)
+
+![Tela Anúncios](images/exibicaoItens.png)
+
+<hr>
