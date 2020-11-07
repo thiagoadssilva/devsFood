@@ -8,7 +8,6 @@ export const Container = styled.div`
     padding: 10px;
     display: flex;
     align-items: center;
-    margin-left: 20px;
     color: #136713;
     cursor: pointer;    
 `;

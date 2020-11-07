@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
-import { Container, CategoryArea, CategoryList, ProductArea, ProductList } from './styled';
+import { 
+    Container, 
+    CategoryArea, 
+    CategoryList, 
+    ProductArea, 
+    ProductList,
+    ProductPaginationArea,
+    ProductPaginationItem 
+} from './styled';
 import ReactTooltip from 'react-tooltip';
 
 import Header from '../../components/Header';
@@ -15,17 +23,25 @@ export default () => {
     const [headerSearch, setHeaderSearch] = useState('');
     const [categories, setCategories] = useState([]);
 
+    
     const [activeCategory, setActiveCategory] = useState(0);
+    const [activePage, setActivePage] = useState(0);
+    
+
+    const [totalPages, setTotalPages] = useState(0);
     const [products, setProducts] = useState([]);
+    
+
 
     const getProducts = async () =>{
         const prods = await api.getProducts();
 
         if(prods.error == ''){
             setProducts(prods.result.data);
+            setTotalPages(prods.result.pages);
+            setActivePage(prods.result.page);
         }
     }
-
 
     useEffect(() =>{
         const getCategories = async () =>{
@@ -40,8 +56,9 @@ export default () => {
     }, []); 
 
     useEffect(() => {
+        setProducts([]);
         getProducts();
-    }, [activeCategory]);
+    }, [activeCategory, activePage]);
 
 
     return (
@@ -86,6 +103,22 @@ export default () => {
                     </ProductList>
                 </ProductArea>
             }
+
+            {totalPages > 0 &&
+                <ProductPaginationArea>
+                        {Array(15).fill(0).map((item, index) =>(
+                            <ProductPaginationItem 
+                                key={index} 
+                                active={activePage}
+                                current={index + 1}
+                                onClick={() => setActivePage(index + 1)}
+                            >
+                                {index + 1}
+                            </ProductPaginationItem>
+                        ))}
+                </ProductPaginationArea>
+            }
+
         </Container>
     );
 }
