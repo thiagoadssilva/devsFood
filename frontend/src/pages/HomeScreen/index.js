@@ -27,7 +27,7 @@ export default () => {
 
     
     const [activeCategory, setActiveCategory] = useState(0);
-    const [activePage, setActivePage] = useState(0);
+    const [activePage, setActivePage] = useState(1);
     const [activeSearch, setActiveSearch] = useState('');
     
 
@@ -37,7 +37,7 @@ export default () => {
 
 
     const getProducts = async () =>{
-        const prods = await api.getProducts();
+        const prods = await api.getProducts(activeCategory, activePage, activeSearch);
 
         if(prods.error == ''){
             setProducts(prods.result.data);
@@ -63,16 +63,22 @@ export default () => {
         getProducts();
     }, [activeCategory, activePage, activeSearch]);
 
+    useEffect(() => {
+        setActiveSearch('');
+        setHeaderSearch('');
+    }, [activeCategory]);
+
     useEffect(() =>{
         clearTimeout(searchTimer);
         searchTimer = setTimeout(() =>{
+            setActiveSearch(headerSearch);
         }, 2000);
     },[headerSearch]);
 
 
     return (
         <Container>
-            <Header  search={headerSearch} onSearch={setHeaderSearch}/>
+            <Header  closeSearch= 'off' search={headerSearch} onSearch={setHeaderSearch}/>
 
             {categories.length > 0 &&
                 <CategoryArea>
@@ -96,6 +102,7 @@ export default () => {
                                 setActiveCategory={setActiveCategory}
                             />
                         ))}
+                        
 
                     </CategoryList>
                 </CategoryArea>

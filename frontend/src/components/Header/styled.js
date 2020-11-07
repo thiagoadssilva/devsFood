@@ -18,7 +18,7 @@ export const Logo = styled.img`
 export const SearchInput = styled.input`
     border: 0;
     border-radius: 25px;
-    width: ${props => props.active ? 300 : 0}px;
+    width: ${props => props.active == '' ? 0 : 300}px;
     height: 50px;
     background-color: #FFF;
     outline: 0;
