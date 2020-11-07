@@ -18,14 +18,20 @@ https://github.com/thiagoadssilva/devsFood/blob/main/frontend/README.md
 
 <hr>
 
-## Tela  <b>Principal</b> (até o momento!)
+## Tela  <b>Principal</b>
 
 ![Tela Anúncios](images/todaPagina.png)
 
 <hr>
 
-## Tela  de exibição dos<b>Itens</b> (até o momento!)
+## Tela  de exibição dos <b>Itens</b> 
 
 ![Tela Anúncios](images/exibicaoItens.png)
+
+<hr>
+
+## <b>Paginação</b>
+
+![Tela Anúncios](images/paginacao.png)
 
 <hr>
