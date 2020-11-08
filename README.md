@@ -35,3 +35,10 @@ https://github.com/thiagoadssilva/devsFood/blob/main/frontend/README.md
 ![Tela Anúncios](images/paginacao.png)
 
 <hr>
+
+
+## <b>Modal</b>
+
+![Tela Anúncios](images/modal.png)
+
+<hr>
