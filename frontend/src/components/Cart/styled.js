@@ -41,9 +41,8 @@ export const CartDown = styled.img`
     margin-right: 10px;
 `;
 
-export const ProductArea = styled.div`
+export const ProductArea = styled.div``;
 
-`;
 export const ProductItem = styled.div`
     display: flex;
     margin: 10px;
@@ -66,7 +65,7 @@ export const ProductPrice = styled.div`
 `;
 export const ProductQuantityArea = styled.div`
     display: flex;
-    align-items: center
+    align-items: center;
 `;
 
 export const ProductQtIcon = styled.img`
@@ -77,5 +76,87 @@ export const ProductQtIcon = styled.img`
 export const ProductQtText = styled.div`
     font-size: 13px;
     font-weight: bold;
-    margin: 0 5px
+    margin: 0 5px;
+`;
+
+export const ProductAddress = styled.div`
+    margin-left: 10px;
+    margin-right: 5px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+`;
+
+export const ProductAddressTitle = styled.div`
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+`;
+export const ProductAddressDescription = styled.div``;
+
+export const ProductAddressComplement = styled.div`
+    width: 170;
+`;
+export const ProductAddressPublicPlace = styled.div``;
+export const ProductAddressStateCity = styled.div``;
+
+export const ProductAddressIcon = styled.img`
+    width: 20px;
+    cursor: pointer;
+    margin-left: 50px;     
+    margin-right: 10px;
+`;
+
+export const ProductAreaAddress = styled.div`
+    width: 207px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+`;
+
+export const ProductAreaCoupon = styled.div`
+    margin-left: 10px;
+    margin-bottom: 20px;
+`;
+export const ProductTitleCoupon = styled.div`
+    font-weight: bold;
+`;
+export const ProductInputCoupon = styled.input`
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 267px;
+    height: 20px;
+`;
+
+export const ProductValuesArea = styled.div`
+    margin-left: 10px;
+`;
+export const ProductAreaDiscount = styled.div`
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+`;
+export const Discount = styled.div`
+    width: 215px;
+`;
+export const ValuesDiscount = styled.div`
+  
+`;
+export const ProductButtomBuy = styled.button`
+    border: 0;
+    background-color: #073C07;
+    color: #FFF;
+    font-size: 15px;;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    cursor: pointer;
 `;

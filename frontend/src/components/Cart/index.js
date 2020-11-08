@@ -15,7 +15,23 @@ import {
     ProductPrice,
     ProductQuantityArea,
     ProductQtIcon,
-    ProductQtText
+    ProductQtText,
+    ProductAddress,
+    ProductAddressTitle,
+    ProductAddressComplement,
+    ProductAddressPublicPlace,
+    ProductAddressStateCity,
+    ProductAddressIcon,
+    ProductAreaAddress,
+    ProductAreaCoupon,
+    ProductTitleCoupon,
+    ProductInputCoupon,
+    
+    ProductValuesArea,
+    ProductAreaDiscount,
+    Discount,
+    ValuesDiscount,
+    ProductButtomBuy
 } from './styled';
 
 export default () =>{
@@ -64,7 +80,7 @@ export default () =>{
                             <ProductPhoto src={item.image} />
                             <ProductInfoArea>
                                 <ProductName>{item.name}</ProductName>
-                                <ProductPrice>R$ {(item.price).toFixed(2)}</ProductPrice>
+                                <ProductPrice>R$ {((item.price) * item.quantity).toFixed(2)}</ProductPrice>
                             </ProductInfoArea>
                             <ProductQuantityArea>
                                 <ProductQtIcon 
@@ -79,8 +95,45 @@ export default () =>{
                             </ProductQuantityArea>
                         </ProductItem>
                     ))}
-                 
                 </ProductArea>
+                
+                <ProductAddressTitle>Entrega</ProductAddressTitle>
+                <ProductAddress>
+                    <ProductAreaAddress>
+                        <ProductAddressComplement>Minha Casa</ProductAddressComplement>
+
+                        <ProductAddressPublicPlace>Rua: Imperatriz, 255A</ProductAddressPublicPlace>
+
+                        <ProductAddressStateCity>Olinda, PE</ProductAddressStateCity>    
+                    </ProductAreaAddress>    
+                    <ProductAddressIcon src="/assets/edit.png"/>
+                </ProductAddress>        
+                    
+                <ProductAreaCoupon>
+                    <ProductTitleCoupon>Cupom de Desconto</ProductTitleCoupon>
+                    <ProductInputCoupon />
+                </ProductAreaCoupon>
+
+                <ProductValuesArea>
+                    <ProductAreaDiscount>
+                        <Discount>Desconto</Discount>
+                        <ValuesDiscount>R$ 0.00</ValuesDiscount>
+                    </ProductAreaDiscount>
+
+                    <ProductAreaDiscount>
+                        <Discount>Taxa de Entrega</Discount>
+                        <ValuesDiscount>R$ 0.00</ValuesDiscount>
+                    </ProductAreaDiscount>
+
+                    <ProductAreaDiscount>
+                        <Discount>Total</Discount>
+                        <ValuesDiscount>R$ 0.00</ValuesDiscount>
+                    </ProductAreaDiscount>
+                   
+                </ProductValuesArea>
+
+                <ProductButtomBuy>FINALIZAR COMPRA</ProductButtomBuy>
+
             </CartBody>
 
         </CartArea>  
