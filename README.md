@@ -6,25 +6,25 @@ https://github.com/thiagoadssilva/devsFood/blob/main/frontend/README.md
 
 <hr/>
 
-## Parte do <b>Menu Lateral</b> 
+## <b>Menu Lateral</b> 
 
 ![Tela Principal](images/MenuLateral.png)
 <hr>
 
 
-## Parte da tela de <b>Busca dos Produtos</b>
+## <b>Busca dos Produtos</b>
 
 ![Tela Anúncios](images/parteBusca.png)
 
 <hr>
 
-## Tela  <b>Principal</b>
+## <b>Principal</b>
 
 ![Tela Anúncios](images/todaPagina.png)
 
 <hr>
 
-## Tela  de exibição dos <b>Itens</b> 
+## <b>Exibição dos Itens</b> 
 
 ![Tela Anúncios](images/exibicaoItens.png)
 
@@ -40,5 +40,11 @@ https://github.com/thiagoadssilva/devsFood/blob/main/frontend/README.md
 ## <b>Modal</b>
 
 ![Tela Anúncios](images/modal.png)
+
+<hr>
+
+## <b>Carrinho de Compras</b>
+
+![Tela Anúncios](images/carrinhoCompras.png)
 
 <hr>
