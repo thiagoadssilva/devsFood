@@ -13,9 +13,12 @@ import ReactTooltip from 'react-tooltip';
 
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
-import ProductItem from '../../components/ProductItem'
+import ProductItem from '../../components/ProductItem';
+import Modal from '../../components/Modal';
+import ModalProduct from '../../components/ModalProduct';
 
 import api from '../../api';
+
 
 let searchTimer = null;
 
@@ -25,6 +28,8 @@ export default () => {
     const [headerSearch, setHeaderSearch] = useState('');
     const [categories, setCategories] = useState([]);
 
+    const [modalStatus, setModalStatus] = useState(false);
+    const [modalData, setModalData] = useState({});
     
     const [activeCategory, setActiveCategory] = useState(0);
     const [activePage, setActivePage] = useState(1);
@@ -35,7 +40,7 @@ export default () => {
     const [products, setProducts] = useState([]);
     
 
-
+    // INICIO - Pegar os produtos que estão na base através da API, pasando também os filtros se necessários
     const getProducts = async () =>{
         const prods = await api.getProducts(activeCategory, activePage, activeSearch);
 
@@ -46,6 +51,14 @@ export default () => {
         }
     }
 
+    const handleProductClick = (data) =>{
+        setModalData(data);
+        setModalStatus(true);
+    }
+
+    // FIM - Pegar os produtos que estão na base através da API, pasando também os filtros se necessários
+
+    // INICIO - Responsável por usar API para buscar as categorias cadastradas
     useEffect(() =>{
         const getCategories = async () =>{
             const cat =  await api.getCategories();        
@@ -57,23 +70,31 @@ export default () => {
         }
         getCategories();
     }, []); 
+    // FIM - Responsável por usar API para buscar as categorias cadastradas
 
+    // INICIO - Fica observando se os campos das categorias, filtro ou a paginação estão sendo clicado se sim ele zera o array com as informações do produtos e coloca novamento
     useEffect(() => {
         setProducts([]);
         getProducts();
     }, [activeCategory, activePage, activeSearch]);
+    // FIM - Fica observando se os campos das categorias, filtro ou a paginação estão sendo clicado se sim ele zera o array com as informações do produtos e coloca novamento
 
+    //INICIO Faz o controle para quando clicar em alguma categoria vai apagar o que estiver no filtro e fecha-lo
     useEffect(() => {
         setActiveSearch('');
         setHeaderSearch('');
     }, [activeCategory]);
+    //FIM Faz o controle para quando clicar em alguma categoria vai apagar o que estiver no filtro e fecha-lo
 
+    // INICIO - Toda fez que o usuário fizer uma pesquisa tem um tempo de 2 segundos para fazer a requisição, assim só vamos fazer uma requisição por vez
     useEffect(() =>{
         clearTimeout(searchTimer);
         searchTimer = setTimeout(() =>{
             setActiveSearch(headerSearch);
         }, 2000);
     },[headerSearch]);
+    // FIM - Toda fez que o usuário fizer uma pesquisa tem um tempo de 2 segundos para fazer a requisição, assim só vamos fazer uma requisição por vez
+
 
 
     return (
@@ -114,12 +135,14 @@ export default () => {
                             <ProductItem 
                                 key={index}
                                 data={item}
+                                onClick={handleProductClick}
                             />               
                         ))}
                     </ProductList>
                 </ProductArea>
             }
 
+            {/*INICIO Conteúdo responsável pela paginação da pagina */}
             {totalPages > 0 &&
                 <ProductPaginationArea>
                         {Array(totalPages).fill(0).map((item, index) =>(
@@ -134,6 +157,12 @@ export default () => {
                         ))}
                 </ProductPaginationArea>
             }
+            {/*FIM Conteúdo responsável pela paginação da pagina */}
+
+            <Modal status={modalStatus} setStatus={setModalStatus}>
+                <ModalProduct data={modalData} setStatus={setModalStatus}/>
+                    
+            </Modal>
 
         </Container>
     );
